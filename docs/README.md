@@ -1,0 +1,1 @@
+All your project's documentation should ideally go into this `docs` folder.

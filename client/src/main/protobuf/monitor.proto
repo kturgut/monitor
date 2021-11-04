@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.brane.monitor.heartbeat.sharding";
+option java_outer_classname = "MonitorProto";
+
+service HeartbeatService {
+    rpc  HeartbeatStats (HeartbeatStatsRequest) returns (HeartbeatStatsResponse) {}
+}
+
+message HeartbeatStatsRequest {
+    sint32 partitionId = 1;
+}
+
+
+message HeartbeatStatsResponse {
+    sint32 partitionId = 1;
+    int64 maxEventTimeMls = 2;
+    int64 waterMarkTime = 3;
+    int64 totalProcessingTime = 4;
+    int64 totalNumberOfHeartbeats = 5;
+    int64 maxEventDelay = 6;
+}
